@@ -91,3 +91,15 @@ vllm serve moonshotai/Kimi-Linear-48B-A3B-Instruct \
   --max-model-len 1048576 \
   --trust-remote-code
 ```
+
+### Citation
+
+If you found our work useful, please cite
+```bibtex
+@article{kimi2025kda,
+  title  = {Kimi Linear: An Expressive, Efficient Attention Architecture},
+  author = {kimi Team},
+  year   = {2025},
+  url    = {https://github.com/MoonshotAI/Kimi-Linear/blob/master/tech_report.pdf}
+}
+```
