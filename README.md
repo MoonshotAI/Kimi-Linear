@@ -92,7 +92,7 @@ vllm serve moonshotai/Kimi-Linear-48B-A3B-Instruct \
   --trust-remote-code
 ```
 
-### Citation
+## Citation
 
 If you found our work useful, please cite
 ```bibtex
