@@ -10,17 +10,17 @@
 
 <div align="center">
   <img width="90%" src="figures/perf_speed.png">
-  <p><em><b>(a)</b> On MMLU-Pro (4k context length), Kimi Linear achieves 51.0 performance with similar speed as full attention. On RULER (128k context length), it shows Pareto-optimal performance (84.3) and 3.98x speedup. <b>(b)</b> Kimi Linear achieves 6.3x faster TPOT compared to MLA, offering significant speedups at long sequence lengths (1M tokens).</em></p>
+  <p><em><b>(a)</b> On MMLU-Pro (4k context length), Kimi Linear achieves 51.0 performance with similar speed as full attention. On RULER (128k context length), it shows Pareto-optimal performance (84.3) and a 3.98x speedup. <b>(b)</b> Kimi Linear achieves 6.3x faster TPOT compared to MLA, offering significant speedups at long sequence lengths (1M tokens).</em></p>
 </div>
 
 ## Overview
 
 Kimi Linear is a hybrid linear attention architecture that outperforms traditional full attention methods across various contexts, including short, long, and reinforcement learning (RL) scaling regimes. 
-At its core is Kimi Delta Attention (KDA)—a refined version of [Gated DeltaNet](https://arxiv.org/abs/2412.06464) that introduces a more efficient gating mechanism to optimize the use of finite-state RNN memory.
+At it's core is Kimi Delta Attention (KDA)—a refined version of [Gated DeltaNet](https://arxiv.org/abs/2412.06464) that introduces a more efficient gating mechanism to optimize the use of finite-state RNN memory.
 
-Kimi Linear achieves superior performance and hardware efficiency, especially for long-context tasks. It reduces the need for large KV caches by up to 75% and boosts decoding throughput by up to $6\times$ for contexts as long as 1M tokens.
+Kimi Linear achieves superior performance and hardware efficiency, especially for long-context tasks. It reduces the need for large KV caches by up to 75% and boosts decoding throughput by up to $6\times$ for context as long as 1M tokens.
 
-We open-source the KDA kernel in [FLA](https://github.com/fla-org/flash-linear-attention/tree/main/fla/ops/kda), and release two versions model checkpoints trained with 5.7T tokens.
+We open-sourced the KDA kernel in [FLA](https://github.com/fla-org/flash-linear-attention/tree/main/fla/ops/kda), and released two versions model checkpoints trained with 5.7T tokens.
 
 
 |      **Model**       | **#Total Params** | **#Activated Params** | **Context Length** |                                **Download Link**                                 |
@@ -43,11 +43,11 @@ We open-source the KDA kernel in [FLA](https://github.com/fla-org/flash-linear-a
 
 ### Inference with Hugging Face Transformers 
 
-To use the Kimi Linear model, we recommend the following environment:
+To use the Kimi Linear model, we recommend the following:
 
-* `python` >= 3.10
-* `torch` >= 2.6
-* `fla-core` >= 0.4.0
+* Language: `python` >= 3.10
+* Package: `torch` >= 2.6
+* Package: `fla-core` >= 0.4.0
 
 ```shell
 pip install -U fla-core
