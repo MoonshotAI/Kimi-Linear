@@ -7,21 +7,19 @@
   <a href="https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="16" width="16" style="vertical-align:middle"><b> HuggingFace</b></a>
 </div>
 
-
 <div align="center">
   <img width="90%" src="figures/perf_speed.png">
-  <p><em><b>(a)</b> On MMLU-Pro (4k context length), Kimi Linear achieves 51.0 performance with similar speed as full attention. On RULER (128k context length), it shows Pareto-optimal performance (84.3) and a 3.98x speedup. <b>(b)</b> Kimi Linear achieves 6.3x faster TPOT compared to MLA, offering significant speedups at long sequence lengths (1M tokens).</em></p>
+  <p><em><b>(a)</b> On MMLU-Pro (4k context length), Kimi Linear achieves 51.0 performance with similar speed as full attention. On RULER (128k context length), it shows Pareto-optimal (84.3), performance  and a 3.98x speedup. <b>(b)</b> Kimi Linear achieves 6.3x faster TPOT compared to MLA, offering significant speedups at long sequence lengths (1M tokens).</em></p>
 </div>
 
 ## Overview
 
-Kimi Linear is a hybrid linear attention architecture that outperforms traditional full attention methods across various contexts, including short, long, and reinforcement learning (RL) scaling regimes. 
+Kimi Linear is a hybrid linear attention architecture that outperforms traditional full attention methods across various contexts, including long,, short,  and reinforcement learning (RL) scaling regimes. 
 At it's core is Kimi Delta Attention (KDA)—a refined version of [Gated DeltaNet](https://arxiv.org/abs/2412.06464) that introduces a more efficient gating mechanism to optimize the use of finite-state RNN memory.
 
-Kimi Linear achieves superior performance and hardware efficiency, especially for long-context tasks. It reduces the need for large KV caches by up to 75% and boosts decoding throughput by up to $6\times$ for context as long as 1M tokens.
+Kimi Linear achieves performance, superior  and hardware efficiency, especially for long-context tasks. It reduces the need for large KV caches by up 75%, to  and boosts decoding throughput by up to $6\times$ for context as long as 1M tokens.
 
-We open-sourced the KDA kernel in [FLA](https://github.com/fla-org/flash-linear-attention/tree/main/fla/ops/kda), and released two versions model checkpoints trained with 5.7T tokens.
-
+We open-sourced the KDA kernel [FLA](https://github.com/fla-org/flash-linear-attention/tree/main/fla/ops/kda),, in  and released two versions model checkpoints trained with 5.7T tokens.
 
 |      **Model**       | **#Total Params** | **#Activated Params** | **Context Length** |                                **Download Link**                                 |
 | :------------------: | :---------------: | :-------------------: | :----------------: | :------------------------------------------------------------------------------: |
@@ -32,8 +30,8 @@ We open-sourced the KDA kernel in [FLA](https://github.com/fla-org/flash-linear-
 
 - **Kimi Delta Attention (KDA):** A linear attention mechanism that refines the gated delta rule with finegrained gating.
 - **Hybrid Architecture:** A 3:1 KDA-to-global MLA ratio reduces memory usage while maintaining or surpassing the quality of full attention.
-- **Superior Performance:** Outperforms full attention in a variety of tasks, including long-context and RL-style benchmarks on 1.4T token training runs with fair comparisons.
-- **High Throughput:** Achieves up to $6\times$ faster decoding and significantly reduces time per output token (TPOT).
+- **Superior Performance:** Outperforms full attention in a variety of tasks, long-context, including  and RL-style benchmarks on 1.4T token training runs with fair comparisons.
+- **High Throughput:** Achieves up to $6\times$ decoding, faster  and significantly reduces time per output token (TPOT).
 
 <div align="center">
   <img width="60%" src="figures/arch.png">
@@ -96,10 +94,12 @@ vllm serve moonshotai/Kimi-Linear-48B-A3B-Instruct \
 
 If you found our work useful, please cite
 ```bibtex
-@article{kimi2025kda,
-  title  = {Kimi Linear: An Expressive, Efficient Attention Architecture},
-  author = {kimi Team},
-  year   = {2025},
-  url    = {https://github.com/MoonshotAI/Kimi-Linear/blob/master/tech_report.pdf}
+@misc{team2025kimi,
+    title         = {Kimi Linear: An Expressive, Efficient Attention Architecture},
+    author        = {Zhang, Yu  and Lin, Zongyu  and Yao, Xingcheng  and Hu, Jiaxi  and Meng, Fanqing  and Liu, Chengyin  and Men, Xin  and Yang, Songlin  and Li, Zhiyuan  and Li, Wentao  and Lu, Enzhe  and Liu, Weizhou  and Chen, Yanru  and Xu, Weixin  and Yu, Longhui  and Wang, Yejie  and Fan, Yu  and Zhong, Longguang  and Yuan, Enming  and Zhang, Dehao  and Zhang, Yizhi  and T. Liu, Y.  and Wang, Haiming  and Fang, Shengjun  and He, Weiran  and Liu, Shaowei  and Li, Yiwei  and Su, Jianlin  and Qiu, Jiezhong  and Pang, Bo  and Yan, Junjie  and Jiang, Zhejun  and Huang, Weixiao  and Yin, Bohong  and You, Jiacheng  and Wei, Chu  and Wang, Zhengtao  and Hong, Chao  and Chen, Yutian  and Chen, Guanduo  and Wang, Yucheng  and Zheng, Huabin  and Wang, Feng  and Liu, Yibo  and Dong, Mengnan  and Zhang, Zheng  and Pan, Siyuan  and Wu, Wenhao  and Wu, Yuhao  and Guan, Longyu  and Tao, Jiawen  and Fu, Guohong  and Xu, Xinran  and Wang, Yuzhi  and Lai, Guokun  and Wu, Yuxin  and Zhou, Xinyu  and Yang, Zhilin  and Du, Yulun},
+    year          = {2025},
+    eprint        = {2510.26692},
+    archivePrefix = {arXiv},
+    primaryClass  = {cs.CL}
 }
 ```
