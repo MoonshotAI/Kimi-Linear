@@ -58,11 +58,15 @@ To use the Kimi Linear model, we recommend the following:
 
 * Language: `python` >= 3.10
 * Package: `torch` >= 2.6
-* Package: `fla-core` >= 0.4.0
+* Package: `fla-core` == 0.4.0
 
 ```shell
-pip install -U fla-core
+pip install "fla-core==0.4.0"
 ```
+
+The model's current remote implementation uses the KDA gate API from
+`fla-core==0.4.0`. Versions 0.4.1 and newer changed that API, so upgrading
+`fla-core` currently causes inference to fail during the gate call.
 
 Example Code:
 ```py
